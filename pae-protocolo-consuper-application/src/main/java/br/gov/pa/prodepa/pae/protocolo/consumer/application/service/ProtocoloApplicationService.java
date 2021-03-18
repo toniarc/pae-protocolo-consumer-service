@@ -1,0 +1,19 @@
+package br.gov.pa.prodepa.pae.protocolo.consumer.application.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloDto;
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloResponseDto;
+import br.gov.pa.prodepa.pae.protocolo.consumer.service.ProtocoloService;
+
+@Component
+public class ProtocoloApplicationService {
+	
+	@Autowired
+	private ProtocoloService service;
+
+	public ProtocoloResponseDto protocolarDocumento(ProtocoloDto dto) {
+		return service.protocolarDocumento(dto);
+	}
+}
