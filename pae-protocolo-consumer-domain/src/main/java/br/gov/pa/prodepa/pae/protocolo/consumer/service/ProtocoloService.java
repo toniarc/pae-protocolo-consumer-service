@@ -1,10 +1,9 @@
 package br.gov.pa.prodepa.pae.protocolo.consumer.service;
 
-import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloDto;
-import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloResponseDto;
+import br.gov.pa.prodepa.pae.protocolo.client.dto.ProtocoloDto;
 
 public interface ProtocoloService {
 
-	ProtocoloResponseDto protocolarDocumento(ProtocoloDto protocoloDto);
+	void protocolarDocumento(ProtocoloDto protocoloDto);
 
 }

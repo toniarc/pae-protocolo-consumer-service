@@ -34,7 +34,7 @@ public class AnexoEntity implements java.io.Serializable {
 	private String conteudo;
 	private Date anexadoEm;
 	private String s3StorageId;
-	private Integer tamanhoArquivoMb;
+	private Float tamanhoArquivoMb;
 	private Integer quantidadePaginas;
 	private Boolean documentoInicial;
 	private Long sequencial;
@@ -114,11 +114,11 @@ public class AnexoEntity implements java.io.Serializable {
 	}
 
 	@Column(name = "tamanho_arquivo_mb", nullable = false)
-	public Integer getTamanhoArquivoMb() {
+	public Float getTamanhoArquivoMb() {
 		return this.tamanhoArquivoMb;
 	}
 
-	public void setTamanhoArquivoMb(Integer tamanhoArquivoMb) {
+	public void setTamanhoArquivoMb(Float tamanhoArquivoMb) {
 		this.tamanhoArquivoMb = tamanhoArquivoMb;
 	}
 

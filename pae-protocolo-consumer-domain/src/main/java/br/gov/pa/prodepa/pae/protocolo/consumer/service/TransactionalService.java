@@ -1,9 +1,10 @@
 package br.gov.pa.prodepa.pae.protocolo.consumer.service;
 
-import org.springframework.transaction.support.TransactionCallback;
+import java.util.function.Function;
+
 
 public interface TransactionalService {
 
-	<T> T executarEmTransacaoSeparada(TransactionCallback<T> action);
+	<R> R executarEmTransacaoSeparada(Function<TransactionalStatus,R> action);
 
 }

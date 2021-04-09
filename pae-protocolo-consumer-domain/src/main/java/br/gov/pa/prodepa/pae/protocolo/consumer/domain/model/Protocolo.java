@@ -1,7 +1,7 @@
 package br.gov.pa.prodepa.pae.protocolo.consumer.domain.model;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -34,8 +34,8 @@ public class Protocolo {
 	private Long orgaoOrigemId;
 	private String orgaoOrigemSigla;
 	private Long localizacaoOrigemId;
-	private Set<Interessado> interessados;
-	private Set<Anexo> anexos;
+	private List<Interessado> interessados;
+	private List<Anexo> anexos;
 	
 	private String hashAnexos;
 	private String hashAlgoritmo;

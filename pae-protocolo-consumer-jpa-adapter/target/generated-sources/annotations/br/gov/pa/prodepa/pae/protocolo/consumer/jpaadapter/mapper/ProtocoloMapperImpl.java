@@ -16,14 +16,16 @@ import br.gov.pa.prodepa.pae.protocolo.consumer.jpaadapter.entity.AssinaturaEnti
 import br.gov.pa.prodepa.pae.protocolo.consumer.jpaadapter.entity.InteressadoEntity;
 import br.gov.pa.prodepa.pae.protocolo.consumer.jpaadapter.entity.ProtocoloEntity;
 import br.gov.pa.prodepa.pae.protocolo.consumer.jpaadapter.entity.ProtocoloEntityId;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-03-18T08:21:27-0300",
+    date = "2021-04-09T12:23:45-0300",
     comments = "version: 1.4.1.Final, compiler: Eclipse JDT (IDE) 3.24.0.v20201123-0742, environment: Java 15.0.1 (Oracle Corporation)"
 )
 public class ProtocoloMapperImpl implements ProtocoloMapper {
@@ -56,8 +58,8 @@ public class ProtocoloMapperImpl implements ProtocoloMapper {
         protocoloEntity.setOrgaoOrigemId( model.getOrgaoOrigemId() );
         protocoloEntity.setOrgaoOrigemSigla( model.getOrgaoOrigemSigla() );
         protocoloEntity.setLocalizacaoOrigemId( model.getLocalizacaoOrigemId() );
-        protocoloEntity.setInteressados( interessadoSetToInteressadoEntitySet( model.getInteressados() ) );
-        protocoloEntity.setAnexos( anexoSetToAnexoEntitySet( model.getAnexos() ) );
+        protocoloEntity.setInteressados( interessadoListToInteressadoEntityList( model.getInteressados() ) );
+        protocoloEntity.setAnexos( anexoListToAnexoEntityList( model.getAnexos() ) );
 
         return protocoloEntity;
     }
@@ -70,7 +72,7 @@ public class ProtocoloMapperImpl implements ProtocoloMapper {
 
         ProtocoloBuilder protocolo = Protocolo.builder();
 
-        protocolo.anexos( anexoEntitySetToAnexoSet( entity.getAnexos() ) );
+        protocolo.anexos( anexoEntityListToAnexoList( entity.getAnexos() ) );
         protocolo.anoDocumento( entity.getAnoDocumento() );
         protocolo.assuntoId( entity.getAssuntoId() );
         protocolo.complemento( entity.getComplemento() );
@@ -80,7 +82,7 @@ public class ProtocoloMapperImpl implements ProtocoloMapper {
         protocolo.hashAlgoritmo( entity.getHashAlgoritmo() );
         protocolo.hashAnexos( entity.getHashAnexos() );
         protocolo.id( protocoloEntityIdToProtocoloId( entity.getId() ) );
-        protocolo.interessados( interessadoEntitySetToInteressadoSet( entity.getInteressados() ) );
+        protocolo.interessados( interessadoEntityListToInteressadoList( entity.getInteressados() ) );
         protocolo.localizacaoDestinoId( entity.getLocalizacaoDestinoId() );
         protocolo.localizacaoOrigemId( entity.getLocalizacaoOrigemId() );
         protocolo.municipioId( entity.getMunicipioId() );
@@ -133,17 +135,17 @@ public class ProtocoloMapperImpl implements ProtocoloMapper {
         return interessadoEntity;
     }
 
-    protected Set<InteressadoEntity> interessadoSetToInteressadoEntitySet(Set<Interessado> set) {
-        if ( set == null ) {
+    protected List<InteressadoEntity> interessadoListToInteressadoEntityList(List<Interessado> list) {
+        if ( list == null ) {
             return null;
         }
 
-        Set<InteressadoEntity> set1 = new HashSet<InteressadoEntity>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
-        for ( Interessado interessado : set ) {
-            set1.add( interessadoToInteressadoEntity( interessado ) );
+        List<InteressadoEntity> list1 = new ArrayList<InteressadoEntity>( list.size() );
+        for ( Interessado interessado : list ) {
+            list1.add( interessadoToInteressadoEntity( interessado ) );
         }
 
-        return set1;
+        return list1;
     }
 
     protected AssinaturaEntity assinaturaToAssinaturaEntity(Assinatura assinatura) {
@@ -206,17 +208,17 @@ public class ProtocoloMapperImpl implements ProtocoloMapper {
         return anexoEntity;
     }
 
-    protected Set<AnexoEntity> anexoSetToAnexoEntitySet(Set<Anexo> set) {
-        if ( set == null ) {
+    protected List<AnexoEntity> anexoListToAnexoEntityList(List<Anexo> list) {
+        if ( list == null ) {
             return null;
         }
 
-        Set<AnexoEntity> set1 = new HashSet<AnexoEntity>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
-        for ( Anexo anexo : set ) {
-            set1.add( anexoToAnexoEntity( anexo ) );
+        List<AnexoEntity> list1 = new ArrayList<AnexoEntity>( list.size() );
+        for ( Anexo anexo : list ) {
+            list1.add( anexoToAnexoEntity( anexo ) );
         }
 
-        return set1;
+        return list1;
     }
 
     protected Assinatura assinaturaEntityToAssinatura(AssinaturaEntity assinaturaEntity) {
@@ -279,17 +281,17 @@ public class ProtocoloMapperImpl implements ProtocoloMapper {
         return anexo.build();
     }
 
-    protected Set<Anexo> anexoEntitySetToAnexoSet(Set<AnexoEntity> set) {
-        if ( set == null ) {
+    protected List<Anexo> anexoEntityListToAnexoList(List<AnexoEntity> list) {
+        if ( list == null ) {
             return null;
         }
 
-        Set<Anexo> set1 = new HashSet<Anexo>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
-        for ( AnexoEntity anexoEntity : set ) {
-            set1.add( anexoEntityToAnexo( anexoEntity ) );
+        List<Anexo> list1 = new ArrayList<Anexo>( list.size() );
+        for ( AnexoEntity anexoEntity : list ) {
+            list1.add( anexoEntityToAnexo( anexoEntity ) );
         }
 
-        return set1;
+        return list1;
     }
 
     protected ProtocoloId protocoloEntityIdToProtocoloId(ProtocoloEntityId protocoloEntityId) {
@@ -325,16 +327,16 @@ public class ProtocoloMapperImpl implements ProtocoloMapper {
         return interessado.build();
     }
 
-    protected Set<Interessado> interessadoEntitySetToInteressadoSet(Set<InteressadoEntity> set) {
-        if ( set == null ) {
+    protected List<Interessado> interessadoEntityListToInteressadoList(List<InteressadoEntity> list) {
+        if ( list == null ) {
             return null;
         }
 
-        Set<Interessado> set1 = new HashSet<Interessado>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
-        for ( InteressadoEntity interessadoEntity : set ) {
-            set1.add( interessadoEntityToInteressado( interessadoEntity ) );
+        List<Interessado> list1 = new ArrayList<Interessado>( list.size() );
+        for ( InteressadoEntity interessadoEntity : list ) {
+            list1.add( interessadoEntityToInteressado( interessadoEntity ) );
         }
 
-        return set1;
+        return list1;
     }
 }

@@ -2,8 +2,7 @@ package br.gov.pa.prodepa.pae.protocolo.consumer.jpaadapter.entity;
 // Generated 18 de mar de 2021 00:52:35 by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -46,8 +45,8 @@ public class ProtocoloEntity implements java.io.Serializable {
 	private Long orgaoOrigemId;
 	private String orgaoOrigemSigla;
 	private Long localizacaoOrigemId;
-	private Set<InteressadoEntity> interessados = new HashSet<InteressadoEntity>(0);
-	private Set<AnexoEntity> anexos = new HashSet<AnexoEntity>(0);
+	private List<InteressadoEntity> interessados;
+	private List<AnexoEntity> anexos;
 
 	public ProtocoloEntity() {
 	}
@@ -236,20 +235,20 @@ public class ProtocoloEntity implements java.io.Serializable {
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "protocolo", cascade = CascadeType.ALL)
-	public Set<InteressadoEntity> getInteressados() {
+	public List<InteressadoEntity> getInteressados() {
 		return this.interessados;
 	}
 
-	public void setInteressados(Set<InteressadoEntity> interessados) {
+	public void setInteressados(List<InteressadoEntity> interessados) {
 		this.interessados = interessados;
 	}
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "protocolo", cascade = CascadeType.ALL)
-	public Set<AnexoEntity> getAnexos() {
+	public List<AnexoEntity> getAnexos() {
 		return this.anexos;
 	}
 
-	public void setAnexos(Set<AnexoEntity> anexos) {
+	public void setAnexos(List<AnexoEntity> anexos) {
 		this.anexos = anexos;
 	}
 

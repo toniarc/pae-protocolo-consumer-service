@@ -17,15 +17,16 @@
 		</dependency>
 
 		<dependency>
-			<groupId>br.gov.pa.prodepa.pae</groupId>
-			<artifactId>pae-suporte-client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
 			<groupId>br.gov.pa.prodepa</groupId>
 			<artifactId>nucleopa-client</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+
+		<dependency>
+			<groupId>br.gov.pa.prodepa.pae-common</groupId>
+			<artifactId>pae-protocolo-client</artifactId>
+			<version>0.0.1-springboot-2.4.2</version>
+		</dependency>
+		
 	</dependencies>
 </project>

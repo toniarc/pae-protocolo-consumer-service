@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Interessado {
 
-	private int id;
+	private Long id;
 	private Protocolo protocolo;
 	private Long pessoaId;
 	private String nome;
@@ -25,7 +25,7 @@ public class Interessado {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 	@Override
@@ -37,10 +37,12 @@ public class Interessado {
 		if (getClass() != obj.getClass())
 			return false;
 		Interessado other = (Interessado) obj;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
-	
 	
 }

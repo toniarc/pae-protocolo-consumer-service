@@ -4,6 +4,7 @@ import javax.jms.ConnectionFactory;
 
 import org.reactivestreams.Publisher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.dsl.IntegrationFlows;
@@ -12,13 +13,10 @@ import org.springframework.integration.dsl.Transformers;
 import org.springframework.integration.handler.LoggingHandler;
 import org.springframework.integration.jms.dsl.Jms;
 import org.springframework.jms.annotation.EnableJms;
+import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
+import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.messaging.Message;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import br.gov.pa.prodepa.pae.protocolo.consumer.application.service.ProtocoloApplicationService;
-import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloDto;
 import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloResponseDto;
 
 @EnableJms
@@ -28,27 +26,35 @@ public class JmsConfig {
 	@Autowired
     private ConnectionFactory connectionFactory;
 	
-	@Autowired
-	private ProtocoloApplicationService service;
-	
-	//@Transformer()
-	public ProtocoloDto jsonToProtocoloDto(String json) {
-		ObjectMapper objectMapper = new ObjectMapper();
-		try {
-			return objectMapper.readValue(json, ProtocoloDto.class);
-		} catch (JsonProcessingException e) {
-			throw new RuntimeException(e);
-		}
-	}
+	@Bean
+    public JmsListenerContainerFactory<?> queueConnectionFactory(ConnectionFactory connectionFactory,
+                                                                 DefaultJmsListenerContainerFactoryConfigurer configurer) {
+        DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+        configurer.configure(factory, connectionFactory);
+        factory.setPubSubDomain(false);
+        return factory;
+    }
+
+    @Bean
+    public JmsListenerContainerFactory<?> topicConnectionFactory(ConnectionFactory connectionFactory,
+                                                                 DefaultJmsListenerContainerFactoryConfigurer configurer) {
+        DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+        configurer.configure(factory, connectionFactory);
+        factory.setPubSubDomain(true);
+        return factory;
+    }
 	
 	@Bean
     public Publisher<Message<ProtocoloResponseDto>> jmsReactiveSource() {
         return IntegrationFlows
                 .from(Jms.messageDrivenChannelAdapter(this.connectionFactory)
-                        .destination("protocolar-documento")
+                        .destination("notificacao")
                 	)
-                .transform(Transformers.fromJson(ProtocoloDto.class))
-                .transform( protocoloDto -> service.protocolarDocumento((ProtocoloDto) protocoloDto))
+                .transform(Transformers.fromJson(ProtocoloResponseDto.class))
+                .filter( m -> {
+                	System.out.println(m);
+                	return ((ProtocoloResponseDto) m).getUsuarioId().equals(3199L);
+                })
                 .channel(MessageChannels.queue())
                 .log(LoggingHandler.Level.DEBUG)
                 .log()

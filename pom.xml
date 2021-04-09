@@ -13,17 +13,18 @@
 		<version>2.4.3</version>
 	</parent>
 
+	<properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
-		
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
@@ -36,17 +37,23 @@
 		</dependency>
 
 		<dependency>
-			<groupId>br.gov.pa.prodepa.pae</groupId>
-			<artifactId>pae-suporte-client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
 			<groupId>br.gov.pa.prodepa</groupId>
 			<artifactId>nucleopa-client</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+		<dependency>
+			<groupId>br.gov.pa.prodepa.pae-common</groupId>
+			<artifactId>pae-common-domain</artifactId>
+			<version>0.0.1-springboot-2.4.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>br.gov.pa.prodepa.pae-common</groupId>
+			<artifactId>pae-suporte-client</artifactId>
+			<version>0.0.1-springboot-2.4.2</version>
+		</dependency>
+		
 	</dependencies>
 
 	<modules>

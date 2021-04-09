@@ -1,11 +1,9 @@
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/ProtocoloId$ProtocoloIdBuilder.class
 br/gov/pa/prodepa/pae/protocolo/consumer/dto/ProtocoloResponseDto$ProtocoloResponseDtoBuilder.class
-br/gov/pa/prodepa/pae/protocolo/consumer/dto/Prioridade.class
 br/gov/pa/prodepa/pae/protocolo/consumer/service/ProtocoloDomainServce.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/SequencialProtolo.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/Protocolo.class
-br/gov/pa/prodepa/pae/protocolo/consumer/dto/OrigemDocumento.class
-br/gov/pa/prodepa/pae/protocolo/consumer/dto/Usuario.class
+br/gov/pa/prodepa/pae/protocolo/consumer/service/ObjectStorageService.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/Assinatura$AssinaturaBuilder.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/Protocolo$ProtocoloBuilder.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/Assinatura.class
@@ -15,12 +13,9 @@ br/gov/pa/prodepa/pae/protocolo/consumer/dto/ProtocoloResponseDto.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/SequencialProtolo$SequencialProtoloBuilder.class
 br/gov/pa/prodepa/pae/protocolo/consumer/port/ProtocoloRepository.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/ProtocoloId.class
-br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/PessoaJuridica.class
-br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/PessoaFisica.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/TipoInteressado.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/Anexo$AnexoBuilder.class
-br/gov/pa/prodepa/pae/protocolo/consumer/dto/ProtocoloDto.class
-br/gov/pa/prodepa/pae/protocolo/consumer/dto/Usuario$UsuarioBuilder.class
+br/gov/pa/prodepa/pae/protocolo/consumer/service/Html2PdfService.class
 br/gov/pa/prodepa/pae/protocolo/consumer/service/ProtocoloService.class
 br/gov/pa/prodepa/pae/protocolo/consumer/port/MessagingConsumerService.class
 br/gov/pa/prodepa/pae/protocolo/consumer/domain/model/Anexo.class

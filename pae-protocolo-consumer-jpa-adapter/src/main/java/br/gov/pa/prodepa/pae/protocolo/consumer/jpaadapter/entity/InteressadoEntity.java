@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @Table(name = "interessado", schema = "pae")
 public class InteressadoEntity implements java.io.Serializable {
 
-	private int id;
+	private Long id;
 	private ProtocoloEntity protocolo;
 	private Long pessoaId;
 	private String nome;
@@ -31,11 +31,11 @@ public class InteressadoEntity implements java.io.Serializable {
 	public InteressadoEntity() {
 	}
 
-	public InteressadoEntity(int id) {
+	public InteressadoEntity(Long id) {
 		this.id = id;
 	}
 
-	public InteressadoEntity(int id, ProtocoloEntity protocolo, Long pessoaId, String nome, String tipoInteressado, String sigla,
+	public InteressadoEntity(Long id, ProtocoloEntity protocolo, Long pessoaId, String nome, String tipoInteressado, String sigla,
 			Long setorId) {
 		this.id = id;
 		this.protocolo = protocolo;
@@ -49,11 +49,11 @@ public class InteressadoEntity implements java.io.Serializable {
 	@Id
 	@SequenceGenerator(name="INTERESSADO_ID_GENERATOR", sequenceName="pae.sq_interessado", allocationSize=1 )
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="INTERESSADO_ID_GENERATOR")
-	public int getId() {
+	public Long getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

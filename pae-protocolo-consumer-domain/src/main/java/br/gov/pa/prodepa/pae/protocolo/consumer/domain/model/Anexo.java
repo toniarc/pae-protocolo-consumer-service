@@ -23,7 +23,7 @@ public class Anexo {
 	private String conteudo;
 	private Date anexadoEm;
 	private String s3StorageId;
-	private Integer tamanhoArquivoMb;
+	private Float tamanhoArquivoMb;
 	private Integer quantidadePaginas;
 	private Long assinanteId;
 	private Boolean documentoInicial;

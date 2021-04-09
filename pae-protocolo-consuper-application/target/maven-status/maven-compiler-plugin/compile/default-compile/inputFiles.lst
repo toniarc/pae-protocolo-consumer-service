@@ -1,6 +1,8 @@
 /home/antoniojunior/development/git/prodepa/pae-protocolo-consumer-service/pae-protocolo-consuper-application/src/main/java/br/gov/pa/prodepa/pae/protocolo/consumer/application/consumer/ProtocoloConsumer.java
 /home/antoniojunior/development/git/prodepa/pae-protocolo-consumer-service/pae-protocolo-consuper-application/src/main/java/br/gov/pa/prodepa/pae/protocolo/consumer/application/fabric/DomainRegistry.java
 /home/antoniojunior/development/git/prodepa/pae-protocolo-consumer-service/pae-protocolo-consuper-application/src/main/java/br/gov/pa/prodepa/pae/protocolo/consumer/PaeProtocoloConsumerServiceApp.java
+/home/antoniojunior/development/git/prodepa/pae-protocolo-consumer-service/pae-protocolo-consuper-application/src/main/java/br/gov/pa/prodepa/pae/protocolo/consumer/application/service/NutanixClientService.java
+/home/antoniojunior/development/git/prodepa/pae-protocolo-consumer-service/pae-protocolo-consuper-application/src/main/java/br/gov/pa/prodepa/pae/protocolo/consumer/application/service/HtmlToPdfServiceImpl.java
 /home/antoniojunior/development/git/prodepa/pae-protocolo-consumer-service/pae-protocolo-consuper-application/src/main/java/br/gov/pa/prodepa/pae/protocolo/consumer/application/controller/ProtocoloController.java
 /home/antoniojunior/development/git/prodepa/pae-protocolo-consumer-service/pae-protocolo-consuper-application/src/main/java/br/gov/pa/prodepa/pae/protocolo/consumer/config/JmsConfig.java
 /home/antoniojunior/development/git/prodepa/pae-protocolo-consumer-service/pae-protocolo-consuper-application/src/main/java/br/gov/pa/prodepa/pae/protocolo/consumer/SpringIntegrationSseDemoApplication.java
