@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>br.gov.pa.prodepa.pae.protocolo</groupId>
 		<artifactId>pae-protocolo-consumer-service</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0</version>
 	</parent>
 	<artifactId>pae-protocolo-consumer-jpa-adapter</artifactId>
 
@@ -28,7 +28,7 @@
 		<dependency>
 			<groupId>br.gov.pa.prodepa.pae.protocolo</groupId>
 			<artifactId>pae-protocolo-consumer-domain</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 

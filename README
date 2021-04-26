@@ -1,0 +1,7 @@
+
+oc port-forward activemq-1-m56sg 61616:61616 8161:8161 & 
+oc port-forward htmlpdfpupperter-1-mdpdz 3001:3001 &
+oc port-forward pae-documento-service-1-p8rsc 8083:8083 &
+
+#alterar para namespace corporativo
+oc port-forward nucleopa-service-3-vvv7m 8085:8085 &

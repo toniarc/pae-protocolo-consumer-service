@@ -2,6 +2,7 @@ package br.gov.pa.prodepa.pae.protocolo.consumer.jpaadapter.adapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
 
 import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.Protocolo;
 import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloResponseDto;
@@ -54,14 +55,28 @@ public class ProtocoloPersistenceAdapter implements ProtocoloRepository {
 
 	@Override
 	public Long buscarProximoSequencial(Integer ano) {
+		
+		StopWatch watch = new StopWatch();
+		watch.start();
+		
 		Long sequencial = sequencialProtocoloRepository.buscarProximoSequencial(ano);
+		
+		watch.stop();
+		System.out.println("Consulta Sequencial: " + watch.getTotalTimeMillis()  + " milisegundos");
 		
 		if (sequencial == null) {
 			return null;
 		}
 		
+		watch = new StopWatch();
+		watch.start();
+		
 		sequencial++;
 		sequencialProtocoloRepository.incrementarSequencial(ano, sequencial);
+		
+		watch.stop();
+		System.out.println("Incremento Sequencial: " + watch.getTotalTimeMillis()  + " milisegundos");
+		
 		return sequencial;
 	}
 

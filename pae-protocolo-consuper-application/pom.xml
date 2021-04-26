@@ -5,21 +5,26 @@
 	<parent>
 		<groupId>br.gov.pa.prodepa.pae.protocolo</groupId>
 		<artifactId>pae-protocolo-consumer-service</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0</version>
 	</parent>
 	<artifactId>pae-protocolo-consuper-application</artifactId>
+
+	<properties>
+		<jkube.generator.name>pae-protocolo-consuper-service</jkube.generator.name>
+		<jkube.enricher.jkube-project-label.app>pae-protocolo-consuper-service</jkube.enricher.jkube-project-label.app>
+	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>br.gov.pa.prodepa.pae.protocolo</groupId>
 			<artifactId>pae-protocolo-consumer-domain</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 		
 		<dependency>
 			<groupId>br.gov.pa.prodepa.pae.protocolo</groupId>
 			<artifactId>pae-protocolo-consumer-jpa-adapter</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${project.version}</version>
 		</dependency>
 
 		<dependency>
@@ -51,7 +56,7 @@
 		<dependency>
 			<groupId>br.gov.pa.prodepa.pae-common</groupId>
 			<artifactId>pae-common-rest</artifactId>
-			<version>0.0.1-springboot-2.4.2</version>
+			<version>${version.pae.common.rest}</version>
 		</dependency>
 
 		<dependency>
@@ -61,4 +66,18 @@
 		</dependency>
 
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.jkube</groupId>
+				<artifactId>openshift-maven-plugin</artifactId>
+				<version>1.2.0</version>
+			</plugin>
+		</plugins>
+	</build>
 </project>

@@ -12,12 +12,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
+import org.springframework.util.StopWatch;
+
 import br.gov.pa.prodepa.nucleopa.client.PessoaFisicaBasicDto;
 import br.gov.pa.prodepa.nucleopa.client.PessoaJuridicaBasicDto;
 import br.gov.pa.prodepa.pae.common.domain.dto.UsuarioDto;
 import br.gov.pa.prodepa.pae.documento.client.ModeloEstruturaBasicDto;
 import br.gov.pa.prodepa.pae.protocolo.client.dto.ProtocoloDto;
-import br.gov.pa.prodepa.pae.protocolo.client.dto.TipoDestino;
 import br.gov.pa.prodepa.pae.protocolo.client.util.ProtocoloUtil;
 import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.Anexo;
 import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.Assinatura;
@@ -109,6 +110,10 @@ public class ProtocoloDomainServce implements ProtocoloService {
 	}
 	
 	private List<Anexo> gerarAnexos(ProtocoloDto protocoloDto) {
+		
+		StopWatch watch = new StopWatch();
+		watch.start();
+		
 		List<Anexo> anexos = new ArrayList<Anexo>(1);
 
 		protocoloDto.getDocumento().setConteudo(ProtocoloUtil.substituirCamposDinamicosProtocolo(protocoloDto.getDocumento().getConteudo(), protocoloDto));
@@ -137,10 +142,16 @@ public class ProtocoloDomainServce implements ProtocoloService {
 		
 		storageService.putObject(anexo.getS3StorageId(), pdf, "image/png");
 		
+		watch.stop();
+		System.out.println("Gerar Anexo: " + watch.getTotalTimeMillis()  + " milisegundos");
 		return anexos;
 	}
 	
 	private Set<Assinatura> gerarAssinaturas(ProtocoloDto protocoloDto){
+		
+		StopWatch watch = new StopWatch();
+		watch.start();
+		
 		Set<Assinatura> assinaturas = new HashSet<Assinatura>(protocoloDto.getAssinantes().size());
 		if(protocoloDto.getAssinantes() != null) {
 			for(UsuarioDto u : protocoloDto.getAssinantes()) {
@@ -155,10 +166,17 @@ public class ProtocoloDomainServce implements ProtocoloService {
 				assinaturas.add(assinatura);
 			}
 		}
+		
+		watch.stop();
+		System.out.println("Gerar Assinaturas: " + watch.getTotalTimeMillis()  + " milisegundos");
 		return assinaturas;
 	}
 	
 	private List<Interessado> gerarInteressados(ProtocoloDto protocoloDto){
+		
+		StopWatch watch = new StopWatch();
+		watch.start();
+		
 		List<Interessado> interessados = new ArrayList<Interessado>();
 		if(protocoloDto.getInteressadosPessoasFisicas() != null) {
 			for(PessoaFisicaBasicDto pf : protocoloDto.getInteressadosPessoasFisicas()) {
@@ -204,10 +222,17 @@ public class ProtocoloDomainServce implements ProtocoloService {
 				interessados.add(interessado);
 			}
 		}
+		
+		watch.stop();
+		System.out.println("Gerar Interessados: " + watch.getTotalTimeMillis()  + " milisegundos");
+		
 		return interessados;
 	}
 	
 	public SequencialProtolo buscarProximoSequencial() {
+	
+		StopWatch watch = new StopWatch();
+		watch.start();
 		
 		int ano = LocalDate.now().getYear();
 		
@@ -239,6 +264,9 @@ public class ProtocoloDomainServce implements ProtocoloService {
 				});
 			}
 		}
+		
+		watch.stop();
+		System.out.println("Buscar Sequencial: " + watch.getTotalTimeMillis()  + " milisegundos");
 		
 		return sequenciaDocumento;
 	}

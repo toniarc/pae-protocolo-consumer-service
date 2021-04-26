@@ -5,28 +5,10 @@
 	<parent>
 		<groupId>br.gov.pa.prodepa.pae.protocolo</groupId>
 		<artifactId>pae-protocolo-consumer-service</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0</version>
 	</parent>
 	<artifactId>pae-protocolo-consumer-domain</artifactId>
 
 	<dependencies>
-		<dependency>
-			<groupId>br.gov.pa.prodepa</groupId>
-			<artifactId>pae-documento-client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>br.gov.pa.prodepa</groupId>
-			<artifactId>nucleopa-client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-
-		<dependency>
-			<groupId>br.gov.pa.prodepa.pae-common</groupId>
-			<artifactId>pae-protocolo-client</artifactId>
-			<version>0.0.1-springboot-2.4.2</version>
-		</dependency>
-		
 	</dependencies>
 </project>

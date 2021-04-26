@@ -2,9 +2,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	
 	<groupId>br.gov.pa.prodepa.pae.protocolo</groupId>
 	<artifactId>pae-protocolo-consumer-service</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<packaging>pom</packaging>
 
 	<parent>
@@ -14,8 +15,11 @@
 	</parent>
 
 	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+		<version.pae.documento.client>1.0</version.pae.documento.client>
+		<version.nucleopa.client>1.0</version.nucleopa.client>
+		<version.common.domain>1.0</version.common.domain>
+		<version.pae.suporte.client>1.0</version.pae.suporte.client>
+		<version.pae.common.rest>1.0</version.pae.common.rest>
 	</properties>
 	
 
@@ -31,27 +35,33 @@
 		</dependency>
 
 		<dependency>
-			<groupId>br.gov.pa.prodepa</groupId>
+			<groupId>br.gov.pa.prodepa.pae-common</groupId>
+			<artifactId>pae-protocolo-client</artifactId>
+			<version>${version.pae.documento.client}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>br.gov.pa.prodepa.pae-common</groupId>
 			<artifactId>pae-documento-client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${version.pae.documento.client}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>br.gov.pa.prodepa</groupId>
 			<artifactId>nucleopa-client</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>${version.nucleopa.client}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>br.gov.pa.prodepa.pae-common</groupId>
 			<artifactId>pae-common-domain</artifactId>
-			<version>0.0.1-springboot-2.4.2</version>
+			<version>${version.common.domain}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>br.gov.pa.prodepa.pae-common</groupId>
 			<artifactId>pae-suporte-client</artifactId>
-			<version>0.0.1-springboot-2.4.2</version>
+			<version>${version.pae.suporte.client}</version>
 		</dependency>
 		
 	</dependencies>
@@ -61,4 +71,17 @@
 		<module>pae-protocolo-consuper-application</module>
 		<module>pae-protocolo-consumer-jpa-adapter</module>
 	</modules>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>11</source>  <!-- same as <java.version> -->
+					<target>11</target>    <!-- same as <java.version> -->
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 </project>
