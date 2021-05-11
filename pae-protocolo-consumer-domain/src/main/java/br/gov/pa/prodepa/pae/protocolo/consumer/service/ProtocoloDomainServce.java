@@ -14,12 +14,7 @@ import java.util.UUID;
 
 import org.springframework.util.StopWatch;
 
-import br.gov.pa.prodepa.nucleopa.client.PessoaFisicaBasicDto;
-import br.gov.pa.prodepa.nucleopa.client.PessoaJuridicaBasicDto;
 import br.gov.pa.prodepa.pae.common.domain.dto.UsuarioDto;
-import br.gov.pa.prodepa.pae.documento.client.ModeloEstruturaBasicDto;
-import br.gov.pa.prodepa.pae.protocolo.client.dto.ProtocoloDto;
-import br.gov.pa.prodepa.pae.protocolo.client.util.ProtocoloUtil;
 import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.Anexo;
 import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.Assinatura;
 import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.Interessado;
@@ -27,12 +22,17 @@ import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.Protocolo;
 import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.ProtocoloId;
 import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.SequencialProtolo;
 import br.gov.pa.prodepa.pae.protocolo.consumer.domain.model.TipoInteressado;
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloDto;
 import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloResponseDto;
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.documento.ModeloEstruturaBasicDto;
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.nucleopa.PessoaFisicaBasicDto;
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.nucleopa.PessoaJuridicaBasicDto;
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.suporte.LocalizacaoComEnderecoDto;
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.suporte.OrgaoPaeBasicDto;
 import br.gov.pa.prodepa.pae.protocolo.consumer.exception.SequencialProtocoloExistenteException;
 import br.gov.pa.prodepa.pae.protocolo.consumer.port.MessagingConsumerService;
 import br.gov.pa.prodepa.pae.protocolo.consumer.port.ProtocoloRepository;
-import br.gov.pa.prodepa.pae.suporte.client.LocalizacaoComEnderecoDto;
-import br.gov.pa.prodepa.pae.suporte.client.OrgaoPaeBasicDto;
+import br.gov.pa.prodepa.pae.protocolo.consumer.validator.ProtocoloUtil;
 
 public class ProtocoloDomainServce implements ProtocoloService {
 
@@ -75,7 +75,7 @@ public class ProtocoloDomainServce implements ProtocoloService {
 		protocoloDto.setNumeroProtocolo(id.getNumeroProtocolo());
 		protocoloDto.setDataProtocolo(now);
 		
-		Protocolo protocolo = new Protocolo().builder()
+		Protocolo protocolo = Protocolo.builder()
 			.id(id)
 			.especieId(protocoloDto.getEspecie().getId())
 			.assuntoId(protocoloDto.getAssunto().getId())

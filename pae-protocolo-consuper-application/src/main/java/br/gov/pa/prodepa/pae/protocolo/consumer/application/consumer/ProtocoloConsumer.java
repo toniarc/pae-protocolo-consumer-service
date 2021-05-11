@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.gov.pa.prodepa.pae.protocolo.client.dto.ProtocoloDto;
 import br.gov.pa.prodepa.pae.protocolo.consumer.application.service.ProtocoloApplicationService;
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloDto;
 import br.gov.pa.prodepa.pae.protocolo.consumer.dto.ProtocoloResponseDto;
 import br.gov.pa.prodepa.pae.protocolo.consumer.port.MessagingConsumerService;
 

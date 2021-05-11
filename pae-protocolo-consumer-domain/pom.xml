@@ -9,6 +9,4 @@
 	</parent>
 	<artifactId>pae-protocolo-consumer-domain</artifactId>
 
-	<dependencies>
-	</dependencies>
 </project>

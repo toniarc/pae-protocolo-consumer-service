@@ -15,10 +15,7 @@
 	</parent>
 
 	<properties>
-		<version.pae.documento.client>1.0</version.pae.documento.client>
-		<version.nucleopa.client>1.0</version.nucleopa.client>
 		<version.common.domain>1.0</version.common.domain>
-		<version.pae.suporte.client>1.0</version.pae.suporte.client>
 		<version.pae.common.rest>1.0</version.pae.common.rest>
 	</properties>
 	
@@ -36,34 +33,10 @@
 
 		<dependency>
 			<groupId>br.gov.pa.prodepa.pae-common</groupId>
-			<artifactId>pae-protocolo-client</artifactId>
-			<version>${version.pae.documento.client}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>br.gov.pa.prodepa.pae-common</groupId>
-			<artifactId>pae-documento-client</artifactId>
-			<version>${version.pae.documento.client}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>br.gov.pa.prodepa</groupId>
-			<artifactId>nucleopa-client</artifactId>
-			<version>${version.nucleopa.client}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>br.gov.pa.prodepa.pae-common</groupId>
 			<artifactId>pae-common-domain</artifactId>
 			<version>${version.common.domain}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>br.gov.pa.prodepa.pae-common</groupId>
-			<artifactId>pae-suporte-client</artifactId>
-			<version>${version.pae.suporte.client}</version>
-		</dependency>
-		
 	</dependencies>
 
 	<modules>

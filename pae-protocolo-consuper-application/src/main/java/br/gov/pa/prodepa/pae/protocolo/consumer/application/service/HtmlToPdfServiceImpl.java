@@ -12,7 +12,7 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
-import br.gov.pa.prodepa.pae.documento.client.ModeloEstruturaBasicDto;
+import br.gov.pa.prodepa.pae.protocolo.consumer.dto.documento.ModeloEstruturaBasicDto;
 import br.gov.pa.prodepa.pae.protocolo.consumer.service.Html2PdfService;
 
 
