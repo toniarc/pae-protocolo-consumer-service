@@ -15,6 +15,7 @@ public class LocalizacaoBasicDto {
 
 	private Long id;
 	private String nome;
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
